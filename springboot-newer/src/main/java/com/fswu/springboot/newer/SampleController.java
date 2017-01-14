@@ -4,6 +4,7 @@
  */
 package com.fswu.springboot.newer;
 
+import org.apache.log4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,16 +14,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @author wufs
- * @version $Id: SampleController.java, v 0.1 2017-01-14 ÉÏÎç12:50 wufs Exp $
+ * @version $Id: SampleController.java, v 0.1 2017-01-14 ï¿½ï¿½ï¿½ï¿½12:50 wufs Exp $
  */
 @Controller
 @EnableAutoConfiguration
 @SpringBootApplication
 public class SampleController {
 
+    private final static Logger LOGGER = Logger.getLogger(SampleController.class);
+
     @RequestMapping("/")
     @ResponseBody
     String home() {
+        LOGGER.info("Receive hello request");
         return "Hello World!";
     }
 
